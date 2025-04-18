@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "br.senai.sp.jandira.lion_school"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

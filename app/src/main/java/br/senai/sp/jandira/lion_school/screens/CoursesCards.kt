@@ -33,7 +33,7 @@ import br.senai.sp.jandira.lion_school.R
 
 @Composable
 fun CourseCard(
-    cursoNome: String = "SIGLA",
+    cursoNome: String = "sigla",
     TextGrande: String = "Nome do curso",
     TextPequeno: String = "Descrição",
     Time: String = "Tempo de curso",
@@ -86,9 +86,10 @@ fun CourseCard(
                     )
                     Spacer(modifier = Modifier .width(20.dp))
                     Text(text = cursoNome,
-                        fontSize = 64.sp,
+                        fontSize = 50.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color(0xFFC23D)
+                        color = Color(0xffFFC23D)
+
 
                     )
 

@@ -74,7 +74,7 @@ fun CourseCard(
 
                 Row(
                     modifier = Modifier
-                        .padding(start = 20.dp)
+                        .padding(start = 10.dp)
                         .fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
 
@@ -82,6 +82,7 @@ fun CourseCard(
                     Image(
                         painter = bulletImg, contentDescription = "",
                         modifier = Modifier
+                            .padding(bottom = 70.dp)
                             .size(90.dp)
                     )
                     Spacer(modifier = Modifier .width(20.dp))
@@ -92,7 +93,10 @@ fun CourseCard(
 
 
                     )
-
+                }
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                ) {
 
                 }
             }

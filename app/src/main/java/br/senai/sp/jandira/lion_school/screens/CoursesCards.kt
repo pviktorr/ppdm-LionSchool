@@ -1,6 +1,6 @@
 package br.senai.sp.jandira.lion_school.screens
 
-import android.widget.Space
+
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,21 +33,28 @@ import br.senai.sp.jandira.lion_school.R
 
 @Composable
 fun CourseCard(
-    cursoNome: String = "sigla",
-    TextGrande: String = "Nome do curso",
-    TextPequeno: String = "Descrição",
-    Time: String = "Tempo de curso",
+    cursoNome: String = "SGL",
+    textGrande: String = "Nome do curso",
+    textPequeno: String = "Descrição",
     bulletImg: Painter = painterResource(R.drawable.galeria),
+    background: Brush = Brush.horizontalGradient(
+        listOf(
+            Color(0xff3347B0),
+            Color(0xffCFD4EA),
+        )
+    ),
+    time: String = "Tempo do Curso",
+    clock: Painter = painterResource(R.drawable.relogio)
 
-    ) {
+) {
 
     Card(
         modifier = Modifier
-            .width(322.dp)
-            .height(209.dp),
+            .width(320.dp)
+            .height(210.dp),
         shape = RoundedCornerShape(15.dp),
         border = BorderStroke(
-            1.dp,
+            2.dp,
             Color(0xFFFFC23D)
         )
     )
@@ -55,14 +62,8 @@ fun CourseCard(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(
-                    brush = Brush.horizontalGradient(
-                        listOf(
-                            Color(0xFF3347B0),
-                            Color(0xFFCFD4EA)
-                        )
-                    )
-                )
+                .background(background)
+
         ) {
             Column(
                 modifier = Modifier
@@ -82,21 +83,66 @@ fun CourseCard(
                     Image(
                         painter = bulletImg, contentDescription = "",
                         modifier = Modifier
-                            .padding(bottom = 70.dp)
-                            .size(90.dp)
+
+                            .size(60.dp)
                     )
-                    Spacer(modifier = Modifier .width(20.dp))
-                    Text(text = cursoNome,
-                        fontSize = 50.sp,
+                    Spacer(modifier = Modifier.width(20.dp))
+                    Text(
+                        text = cursoNome,
+                        fontSize = 64.sp,
                         fontWeight = FontWeight.SemiBold,
                         color = Color(0xffFFC23D)
 
 
                     )
                 }
-                Column(modifier = Modifier
-                    .fillMaxWidth()
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+
+                        .padding(start = 15.dp)
                 ) {
+                    Text(
+                        text = textGrande,
+                        fontSize = 15.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color.White
+                    )
+                    Text(
+                        text = textPequeno,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color.White
+
+
+                    )
+
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 30.dp, top = 20.dp),
+                    verticalAlignment = Alignment.CenterVertically
+
+                ) {
+                    Image(
+                        painter = clock, contentDescription = "",
+                        modifier = Modifier
+                            .size(13.dp)
+                    )
+                    Spacer(
+                        modifier = Modifier
+                            .width(8.dp)
+                    )
+                    Text(text = time,
+                        fontWeight = FontWeight.SemiBold ,
+                        fontSize = 10.sp,
+                        color = Color.White
+
+
+                    )
+
+
 
                 }
             }

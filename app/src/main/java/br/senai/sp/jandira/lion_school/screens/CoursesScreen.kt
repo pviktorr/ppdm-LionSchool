@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -35,6 +37,7 @@ import br.senai.sp.jandira.lion_school.R
 
 @Composable
 fun CoursesScreen() {
+    val scroll = rememberScrollState()
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -121,6 +124,30 @@ fun CoursesScreen() {
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF3347B0)
             )
+
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(scroll)
+                .padding(top = 80.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+    CourseCard(cursoNome = "DS",
+            bulletImg = painterResource(R.drawable.ds),
+    textGrande = "Desenvolvimento de Sistemas",
+    textPequeno = "Learn to develop web and mobile applications ",
+    time = "3 semesters"
+    )
+            CourseCard(cursoNome = "DS",
+                bulletImg = painterResource(R.drawable.ds),
+                textGrande = "Desenvolvimento de Sistemas",
+                textPequeno = "Learn to develop web and mobile applications ",
+                time = "3 semesters"
+            )
+
+
 
         }
     }
